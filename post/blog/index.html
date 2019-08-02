@@ -7,10 +7,10 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.56.3" />
 
-  <title>剑指offer19:正则表达式匹配(Java实现) &middot; My New Hugo Site</title>
+  <title>剑指offer19:正则表达式匹配(Java实现) &middot; 欢迎来到我的博客</title>
 
-  
-  
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
 
   <!--[if lte IE 8]>
@@ -29,24 +29,24 @@
 
   <link rel="stylesheet" href="/css/blackburn.css">
 
-  
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  
+
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
- 
-  
 
-  
+
+
+
 
   <link rel="shortcut icon" href="https://yourselephant.github.io/img/favicon.ico" type="image/x-icon" />
 
-  
-  
+
+
 
 </head>
 
@@ -54,97 +54,97 @@
 <body>
 <div id="layout">
 
-  
+
 <a href="#menu" id="menuLink" class="menu-link">
-  
+
   <span></span>
 </a>
 <div id="menu">
 
-  
+
 
   <div class="pure-menu">
     <ul class="pure-menu-list">
-      
+
     </ul>
   </div>
 
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </ul>
 </div>
@@ -179,15 +179,15 @@
     <time>02 Aug 2019, 17:09</time>
   </div>
 
-  
 
-  
 
-  
+
+
+
 
 </div>
 
-  
+
 
 <h1 id="题目描述">题目描述</h1>
 
@@ -219,25 +219,25 @@
 {
     int m=str.length,n=pattern.length;
     //动态数组，字符串和模式中的字符都从1开始编号
-    boolean[][] dp=new boolean[m+1][n+1];  
-        
+    boolean[][] dp=new boolean[m+1][n+1];
+
     dp[0][0] = true; //字符串和模式首端的空字符已匹配
-        
+
     //s为空串
     for(int i=1;i&lt;=n;i++){
         if(pattern[i-1] == '*')          //i-1为pattern真实索引
             dp[0][i]=dp[0][i-2];         //只有x*能匹配空串，若有*，它的真值一定和dp[0][i-2]的相同
     }
-        
+
     //然后两层循环填充剩下的部分
     for(int i=1;i&lt;=m;i++){
         for(int j=1;j&lt;=n;j++){
-                
+
         	if(str[i-1] == pattern[j-1] || pattern[j-1] == '.') //先从str第一个字符开始和pattern的所有字符匹配
                 dp[i][j]=dp[i-1][j-1];
-                
+
         	else if(pattern[j-1] == '*')   //匹配到*，分情况
-                    
+
         		if(pattern[j-2] == str[i-1] || pattern[j-2] == '.'){  //str是否和*前一个字符相等
                     dp[i][j] |= dp[i][j-1];    //a*匹配1次
                     dp[i][j] |= dp[i-1][j];    //a*匹配多次
@@ -253,10 +253,10 @@
 </ul>
 
 
-  
 
 
-  
+
+
 
 </div>
 
@@ -272,4 +272,3 @@
 
 </body>
 </html>
-
